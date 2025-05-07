@@ -39,7 +39,7 @@ pipeline {
                     docker build -t ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest .
                     
                     # Push to registry
-                    docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest
+                    docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest || true 
                 '''
             }
         }
