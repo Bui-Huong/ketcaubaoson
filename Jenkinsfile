@@ -5,7 +5,7 @@ pipeline {
     
     environment {
         DOCKER_REGISTRY = 'mdngphg411'
-        IMAGE_NAME = 'baosoncompany:latest'
+        IMAGE_NAME = 'baosoncompany'
         CONTAINER_NAME = 'baoson'
     }
     
@@ -26,6 +26,8 @@ pipeline {
                     
                     # Remove old image if it exists
                     docker rmi ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest || true
+                    # Prune build 
+                    docker builder prune -f
                 '''
             }
         }
