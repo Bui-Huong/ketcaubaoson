@@ -1,14 +1,18 @@
 pipeline {
-    agent any {
+    agent {
     }
     
     environment {
+        DOCKER_REGISTRY = 'mdngphg411'
+        IMAGE_NAME = 'baosoncompany:latest'
+        CONTAINER_NAME = 'baoson'
     }
     
     stages {
         stage('Checkout Code') {
             steps {
-                //checkout the code from repository
+                // Checkout the code from the repository
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/dungphung411/baosoncompany.git'
             }
         }
         
@@ -43,7 +47,7 @@ pipeline {
                     # Run the new container
                     docker run -d \
                         --name ${CONTAINER_NAME} \
-                        -p 8080:8080 \
+                        -p 8686:80 \
                         ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest
                 '''
             }
