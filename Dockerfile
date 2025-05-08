@@ -12,7 +12,7 @@ COPY . .
 RUN yarn -i
 RUN npm run build
 
-# Deployment.
+# Deployment..
 FROM base AS final
 WORKDIR /usr/share/nginx/html
 COPY --from=build /app/dist .
