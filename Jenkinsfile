@@ -39,7 +39,8 @@ pipeline {
                     docker build -t ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest .
                     
                     # Push to registry
-                    docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest || true 
+                    # Khi nào image thay đổi nhiều thì hãy push để lưu trữ, vì downtime khi push phải hơn 10 phút 
+                    # docker push ${DOCKER_REGISTRY}/${IMAGE_NAME}:latest || true 
                 '''
             }
         }
