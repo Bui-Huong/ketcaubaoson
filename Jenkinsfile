@@ -13,7 +13,7 @@ pipeline {
         stage('Checkout Code') {
             steps {
                 // Checkout the code from the repository
-                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/dungphung411/baosoncompany.git'
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/Bui-Huong/ketcaubaoson.git'
             }
         }
         
